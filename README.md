@@ -8,14 +8,14 @@ This was the combination of a parsing calculator that was created while working 
 
 Supports:
 
-*factorials
-*powers
-*square roots
-*modulus remainder
-*division
-*multiplication
-*subtraction
-*addition
-*variable declaration
-*brackets and parentheses
-*decimal numbers
+* factorials
+* powers
+* square roots
+* modulus remainder
+* division
+* multiplication
+* subtraction
+* addition
+* variable declaration
+* brackets and parentheses
+* decimal numbers
