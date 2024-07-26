@@ -51,7 +51,7 @@ const std::string declkey = "let";
 const std::string sqrtkey = "sqrt";
 const std::string powkey = "pow";
 const std::string quitkey = "quit";
-std::stringstream ss{};             // handles the stream for our input to calculate
+std::stringstream ss;             // handles the stream for our input to calculate
 
 //------------------------------------------------------------------------------
 
@@ -458,15 +458,15 @@ void clean_up_mess()
 //------------------------------------------------------------------------------
 
 // handler for the user inputs and calculations
-QString calculate(QString& input)
+QString calculate(QString input)
 {
+    std::cout << input.toStdString() << std::endl;
     ss = std::stringstream(input.toStdString());    // initialize our stream
+    ss.seekg(0);
     while (true) {
         try {
-            // std::cout << prompt;
             Token t = ts.get();
             while (t.kind == print) t = ts.get();   // first discard all "prints"
-            // if (t.kind == quit) return "";          // if prompted to quit, quit
             ts.unget(t);
             return QString::number(statement());
         }

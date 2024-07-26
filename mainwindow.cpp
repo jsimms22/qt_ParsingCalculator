@@ -21,9 +21,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnClear_clicked()
 {
-    QString temp{};
-    ui->txtInput->setText(temp);
-    ui->txtResult->setText(temp);
+    QString clear{};
+    ui->txtInput->setText(clear);
+    ui->txtResult->setText(clear);
 }
 
 void MainWindow::on_btnDelete_clicked()
@@ -72,13 +72,14 @@ void MainWindow::on_btnCloseBrack_clicked()
 
 void MainWindow::on_btnEquals_clicked()
 {
-    QString temp = ui->txtInput->text();
-    // temp += "=";
-    // ui->txtInput->setText(temp);
+    if (ui->txtResult->text().size() != 0) {
+        QString clear{};
+        ui->txtResult->setText(clear);
+    }
+
+    QString temp = ui->txtInput->text() + ";";
     if (temp.size() != 0) {
-        // broken
-        QString result = calculate(temp);
-        ui->txtResult->setText(result);
+        ui->txtResult->setText(calculate(temp));
     }
 }
 
@@ -127,21 +128,21 @@ void MainWindow::on_btnFactorial_clicked()
 void MainWindow::on_btnPower_clicked()
 {
     QString temp = ui->txtInput->text();
-    temp += " pow";
+    temp += " pow(";
     ui->txtInput->setText(temp);
 }
 
 void MainWindow::on_btnSqrt_clicked()
 {
     QString temp = ui->txtInput->text();
-    temp += " sqrt";
+    temp += " sqrt(";
     ui->txtInput->setText(temp);
 }
 
 void MainWindow::on_btnDeclare_clicked()
 {
     QString temp = ui->txtInput->text();
-    temp += " let ";
+    temp += "let <var-name> = ";
     ui->txtInput->setText(temp);
 }
 
@@ -149,9 +150,11 @@ void MainWindow::on_btnDeclare_clicked()
 /*-----NUMBERS------*/
 /*------------------*/
 
-void MainWindow::on_btnVariable_clicked()
+void MainWindow::on_btnComma_clicked()
 {
-    /* TODO: open a drop down menu to select a variable or input new one */
+    QString temp = ui->txtInput->text();
+    temp += ",";
+    ui->txtInput->setText(temp);
 }
 
 void MainWindow::on_btnDecimal_clicked()

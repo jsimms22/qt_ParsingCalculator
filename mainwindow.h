@@ -70,7 +70,7 @@ private slots:
 
     void on_btnAdd_clicked();
 
-    void on_btnVariable_clicked();
+    void on_btnComma_clicked();
 
     void on_btnClear_clicked();
 
